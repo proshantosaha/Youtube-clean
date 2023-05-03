@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 const PlaylistForm = ({open,handleClose,getPlayListId}) =>{
 
-    const {state,setState} = useState('')
+    const [state,setState] = useState('')
 
     const handleSubmit = () =>{
         // todo handle url later 

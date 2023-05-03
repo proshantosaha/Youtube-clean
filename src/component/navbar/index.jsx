@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import { Button, Container, Stack } from '@mui/material';
 import PlaylistForm from '../playlist-form';
 
-const Navbar = () => {
+const Navbar = ({getPlaylistById}) => {
 
     const [open, setOpen] = useState(false);
 
@@ -26,8 +26,8 @@ const Navbar = () => {
       setOpen(false);
     };
 
-    const getPlayListId =(playlistId) =>{
-      console.log(playlistId);
+    const getPlayListId = (playlistId) =>{
+      getPlaylistById(playlistId);
     }
 
   return (
@@ -35,7 +35,6 @@ const Navbar = () => {
       <AppBar position="fixed" color='default' sx={{py:2}}>
       <Container maxWidth='lg'>
           <Toolbar>
-          
               <Stack sx={{flexGrow:1}}>
                     <Typography variant="h4" >
                         Clean Youtube
@@ -49,9 +48,9 @@ const Navbar = () => {
                 Add playlist
               </Button>
               <PlaylistForm
-              open={open}
-              handleClose={handleClose}
-             getPlayListId={getPlayListId}
+                open={open}
+                handleClose={handleClose}
+                getPlayListId={getPlayListId}
               />
           
           </Toolbar>
