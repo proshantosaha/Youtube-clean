@@ -1,23 +1,42 @@
-import { CssBaseline } from "@mui/material";
+import { Container, CssBaseline, Grid } from "@mui/material";
 import Navbar from "./component/navbar";
 import usePlaylist from "./hooks/usePlaylist";
+import PlaylistCardItem from './component/playlist-CardI-tem'
+
 
 
  const App =() =>{
  
-  const{playlists,error,getPlaylistById}=usePlaylist()
-
-  console.log(playlists);
-  console.log('error', error);
+  const{playlists,getPlaylistById} = usePlaylist();
+  // error,
+  const playlistArray = Object.values(playlists);
 
    return(
-   <> 
+   <>  
 
       <CssBaseline/>
-      <div>
+
+
+
+      <Container maxWidth={'lg'} sx={{my:16}}>
         <Navbar getPlaylistById={getPlaylistById}/>
-      <h2>hi i am here</h2>
-      </div>
+
+        {playlistArray.length > 0 && (
+              <Grid container alignItems="stretch">
+                  {playlistArray.map((item) => (
+                    <Grid item xs={12} md={6} lg={4} mb={2}>
+                        <PlaylistCardItem
+                          key ={item.id}
+                          playlistThumbnails ={item.playlistThumbnails}
+                          playlistTitle ={item.playlistTitle}
+                          channelTitle = {item.channelTitle}
+                        
+                        /> 
+                      </Grid>
+                    ))}
+            </Grid>
+          )}
+      </Container>
        
     </>
    );
