@@ -12,11 +12,11 @@ const playlistID = 'PL_XxuZqN0xVBfji5SwKd-CQijtdmcUTMU'
 
 const HomePage = ({playlistArray}) =>{
 
-  const playlist = useStoreActions (actions => actions.playlist)
+  // const playlist = useStoreActions (actions => actions.playlist)
 
-  useEffect(()=>{
-    playlist.getPlaylist(playlistID)
-  },[])
+  // useEffect(()=>{
+  //   playlist.getPlaylist(playlistID)
+  // },[])
 
    return (
     <Container maxWidth={'lg'} sx={{my:16}}>
